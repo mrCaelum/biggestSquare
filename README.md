@@ -1,5 +1,5 @@
 # BSQ
-*Elementary Programming in C*
+*Elementary Programming in C | Epitech | Tek1*
 
 ##### Purpose of the project :
 - [x] Find the biggest square on a text file with some '.' and 'o'
