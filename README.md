@@ -25,7 +25,7 @@ All files contained in the `mouli_maps` folder can be tested with :
 $ ./mouli.sh
 ```
 
-### Exemple
+### Example
 ```
 $ ./mouli.sh
 
