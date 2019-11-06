@@ -5,6 +5,11 @@
 - [x] Find the biggest square on a text file with some '.' and 'o'
 - [x] Replace the biggest square consists of '.' by 'x'
 
+## Dependencies
+- [gcc](https://gcc.gnu.org)
+- [make](https://www.gnu.org/software/make/)
+- [python3](https://www.python.org) *(testing script)*
+
 ## Build
 ```
 $ make
@@ -22,25 +27,25 @@ DESCRIPTION
 ## Testing
 All files contained in the `mouli_maps` folder can be tested with :
 ```
-$ ./mouli.sh
+$ ./mouli.py
 ```
 
 ### Example
 ```
-$ ./mouli.sh
+$ ./mouli.py
+[1] intermediate_map_100_100: in 0.0441 seconds
+STATUS :  PASSED
 
-mouli_maps/empty_map : OK
+[2] intermediate_map_1000_1000: in 0.1242 seconds
+STATUS :  PASSED
 
-[TIME] 0:00.00
-[CPU]  81%
-[EXIT] 84
+[3] intermediate_map_10000_10000: in 1.6480 seconds
+STATUS :  TIMEOUT
+
+[4] empty_map: in 0.0283 seconds
+STATUS :  ERROR
 
 
-mouli_maps/intermediate_map_10000_10000 : OK
-
-[TIME] 0:01.92
-[CPU]  99%
-[EXIT] 0
-
-[total : 2] [passed : 2] [failed : 0] >> 100.00 %
+TOTAL TIME : 1.8446 seconds
+[total : 4] [passed : 2] [timed out : 1] [failed : 1]  >> 25.00 %
 ```
