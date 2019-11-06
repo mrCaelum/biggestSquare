@@ -33,7 +33,7 @@ def main():
 			print(" in\033[1;33m", "{:.4f}".format(delay), "\033[0mseconds")
 			print(end="\033[1mSTATUS\033[0m : ")
 			if filecmp.cmp("./.tmp", "./mouli_maps_solved/" + path + "/" + filename):
-				if delay > 0.4:
+				if delay > 5:
 					print("\033[1;37;43m TIMEOUT \033[0m")
 					TIMEOUT += 1
 				else:
