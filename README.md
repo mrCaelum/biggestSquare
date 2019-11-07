@@ -47,5 +47,5 @@ STATUS :  ERROR
 
 
 TOTAL TIME : 1.8446 seconds
-[total : 4] [passed : 2] [timed out : 1] [failed : 1]  >> 25.00 %
+[total : 4] [passed : 2] [timed out : 1] [failed : 1]  >> 50.00 %
 ```
