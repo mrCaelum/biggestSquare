@@ -43,45 +43,14 @@ def main():
 				print("\033[1;37;41m ERROR \033[0m")
 			print()
 			TOTAL += 1
-	os.system("rm ./.tmp")
-	FAILED = TOTAL - PASSED - TIMEOUT
-	COVERAGE = PASSED / TOTAL * 100
-	print("\nTOTAL TIME : \033[1;33m{:.4f}\033[0m seconds".format(TIME))
-	print("\033[37m[\033[1;34mtotal : " + str(TOTAL) + "\033[37m] " + ("[\033[32mpassed : " + str(PASSED) + "\033[37m] " if PASSED > 0 else "") + ("[\033[33mtimed out : " + str(TIMEOUT) + "\033[37m] " if TIMEOUT > 0 else "") + ("[\033[31mfailed : " + str(FAILED) + "\033[37m]" if FAILED > 0 else "") + "  >> " + "{:.2f} %".format(COVERAGE))
+	if TOTAL > 0 :
+		os.system("rm ./.tmp")
+		FAILED = TOTAL - PASSED - TIMEOUT
+		COVERAGE = PASSED / TOTAL * 100
+		print("\nTOTAL TIME : \033[1;33m{:.4f}\033[0m seconds".format(TIME))
+		print("\033[37m[\033[1;34mtotal : " + str(TOTAL) + "\033[37m] " + ("[\033[32mpassed : " + str(PASSED) + "\033[37m] " if PASSED > 0 else "") + ("[\033[33mtimed out : " + str(TIMEOUT) + "\033[37m] " if TIMEOUT > 0 else "") + ("[\033[31mfailed : " + str(FAILED) + "\033[37m]" if FAILED > 0 else "") + "  >> " + "{:.2f} %".format(COVERAGE))
+	else:
+		print("No tests")
 
 if __name__ == "__main__":
 	main()
-
-# TOTAL=0
-# PASSED=0
-# FAILED=0
-# COVERAGE=0
-# TIME=0
-
-# test_passed () {
-# 	echo -e "\e[1;34m"$filename : OK"\e[37m"
-# 	echo -e -n "\e[32m"
-# 	/usr/bin/time -q -f "\n[TIME] %E\n[CPU]  %P\n[CODE] %x" ./bsq $filename > /dev/null
-# 	echo -e "\e[37m"
-# 	$(( $PASSED = $PASSED + 1 ))
-# }
-
-# if [ ! -x bsq ]; then
-# 	make --silent
-# 	make clean --silent
-# fi
-
-# for filename in mouli_maps/*; do
-# 	./bsq $filename > .tmp
-# 	echo -e "\e[1;31m"
-# 	cmp .tmp mouli_maps_solved/$filename && test_passed
-# 	let "TOTAL++"
-# done
-
-# rm .tmp
-# let "FAILED=TOTAL-PASSED"
-# let "COVERAGE=PASSED/TOTAL*100"
-# echo -e "\e[37m"
-# echo -e -n ["\e[1;34m"total : $TOTAL"\e[37m"] ["\e[32m"passed : $PASSED"\e[37m"] ["\e[31m"failed : $FAILED"\e[37m"]  ">> "
-# awk "BEGIN {printf \"%.2f %%\n\", $PASSED / $TOTAL * 100}"
-# echo
